@@ -1,0 +1,60 @@
+<div class="page">
+
+    <!-- Header section -->
+    <header>
+        <nav class="navbar">
+            <div class="brand--logo">Ignio</div>
+            <!-- Search section -->
+            <section class="search">
+                <input type="search" name="search" id="search--restaurants" class="search--restaurants" placeholder="Search Restaurants by brand" [(ngModel)]="searchText" autofocus>
+            </section>
+            <ul class="nav--list">
+                <li class="nav--item">
+                    <a href="#" class="nav--link">
+                        Home
+                    </a>
+                </li>
+                <li class="nav--item">
+                    <a href="#" class="nav--link">
+                        About
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <!-- Restaurant Details section -->
+    <section class="restaurant--section" id="restaurant--section">
+        <div class="card" *ngFor="let restaurant of restaurantData | search: searchText">
+            <div class="card-header">
+                <img src="{{restaurant.Image}}" alt="Noodles" class="restaurant--image">
+                <p class="rank">{{restaurant['Top Ten']}}</p>
+            </div>
+            <div class="restaurant--name__details">
+                <h4 class="brand">{{restaurant.Brand}}</h4>
+                <div class="rating">
+                    <div class="rating--star" *ngFor="let star of restaurant.Stars"></div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="restaurant--profile__details">
+                <div class="profile profile 1">
+                    <p class="profile--name">Style</p>
+                    <p class="profile--summary">{{restaurant.Style}}</p>
+                </div>
+                <div class="profile profile 2">
+                    <p class="profile--name">Country</p>
+                    <p class="profile--summary">{{restaurant.Country}}</p>
+                </div>
+                <div class="profile profile 3">
+                    <p class="profile--name">Variety</p>
+                    <p class="profile--summary">{{restaurant.Variety}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
